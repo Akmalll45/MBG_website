@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBG - Mobil Bekas Garasi Makassar</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        accent: '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(12, 74, 110, 0.8), rgba(12, 74, 110, 0.9)), url('https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&q=80&w=2000') center/cover;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-10 h-10 bg-brand-600 text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md">
+                        M
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-brand-900">MBG<span class="text-accent">.</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-900 font-medium hover:text-brand-600 transition">Beranda</a>
+                    <a href="#katalog" class="text-gray-500 font-medium hover:text-brand-600 transition">Katalog</a>
+                    <a href="#" class="text-gray-500 font-medium hover:text-brand-600 transition">Tentang Kami</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left">
+            <div class="md:w-2/3 lg:w-1/2">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-100 backdrop-blur-sm border border-brand-400/30 text-sm font-semibold mb-4">
+                    Showroom Terpercaya di Makassar
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    Temukan Mobil Impianmu di <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-accent">Garasi Kami</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-light leading-relaxed">
+                    Pilihan mobil bekas berkualitas dengan harga terbaik. Beli mudah, aman, dan cepat langsung dari genggaman Anda.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#katalog" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-center">
+                        Lihat Daftar Mobil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section id="katalog" class="py-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 -mt-24 relative z-20">
+                <h2 class="text-xl font-bold mb-4 text-gray-800 flex items-center gap-2">
+                    <i class="fa-solid fa-filter text-brand-500"></i> Cari & Filter Kendaraan
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Filter: Brand -->
+                    <div>
+                        <label for="brand-filter" class="block text-sm font-medium text-gray-700 mb-2">Merek Mobil</label>
+                        <div class="relative">
+                            <select id="brand-filter" class="block w-full pl-3 pr-10 py-3 text-base border-gray-300 bg-gray-50 focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-xl appearance-none border transition">
+                                <option value="All">Semua Merek</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Daihatsu">Daihatsu</option>
+                                <option value="Mitsubishi">Mitsubishi</option>
+                                <option value="Suzuki">Suzuki</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                <i class="fa-solid fa-chevron-down text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Filter: Max Price -->
+                    <div>
+                        <label for="price-filter" class="block text-sm font-medium text-gray-700 mb-2">Harga Maksimal (Rp)</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <span class="text-gray-500 sm:text-sm">Rp</span>
+                            </div>
+                            <input type="number" id="price-filter" placeholder="Misal: 200000000" class="block w-full pl-12 pr-4 py-3 border border-gray-300 bg-gray-50 rounded-xl focus:ring-brand-500 focus:border-brand-500 sm:text-sm transition text-gray-900" step="1000000">
+                        </div>
+                    </div>
+
+                    <!-- Reset Button -->
+                    <div class="flex items-end">
+                        <button id="reset-filter" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-xl transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i> Reset Filter
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results Counter -->
+                <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-500">
+                    Menampilkan <span id="result-count" class="font-bold text-brand-600">0</span> mobil ditemukan.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Grid Section -->
+    <section class="py-12 bg-gray-50 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Daftar Mobil Terkini</h2>
+            
+            <!-- Grid Container -->
+            <div id="car-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Car Cards will be injected here via JavaScript -->
+            </div>
+            
+            <!-- Empty State (Hidden by default) -->
+            <div id="empty-state" class="hidden text-center py-20">
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-200 mb-4 text-gray-400 text-3xl">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">Mobil Tidak Ditemukan</h3>
+                <p class="text-gray-500">Coba ubah kriteria pencarian atau reset filter Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-brand-600 text-white rounded flex items-center justify-center font-bold">M</div>
+                    <span class="font-bold text-xl tracking-tight text-white">MBG</span>
+                </div>
+                <p class="text-gray-400 text-sm">Mobil Bekas Garasi (MBG) adalah showroom mobil bekas terpercaya di Makassar. Kami menyediakan mobil berkualitas tinggi yang telah lolos inspeksi menyeluruh.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4 text-gray-200">Kontak Kami</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><i class="fa-solid fa-location-dot w-5"></i> Jl. A.P. Pettarani, Makassar</li>
+                    <li><i class="fa-brands fa-whatsapp w-5"></i> +62 811-2222-3333</li>
+                    <li><i class="fa-regular fa-envelope w-5"></i> info@mbgmakassar.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4 text-gray-200">Keamanan Transaksi</h4>
+                <p class="text-gray-400 text-sm mb-4">Kami mendukung pembayaran yang aman dan transparan.</p>
+                <div class="flex gap-2">
+                    <span class="bg-white/10 px-3 py-1 rounded text-xs font-semibold">QRIS</span>
+                    <span class="bg-white/10 px-3 py-1 rounded text-xs font-semibold">Transfer Bank</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+            &copy; <span id="current-year"></span> Mobil Bekas Garasi. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Custom Modal / Message Box (Replaces Alert) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm relative z-10 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <div class="p-6 text-center">
+                <div id="modal-icon" class="mx-auto flex items-center justify-center h-16 w-16 rounded-full mb-4">
+                    <!-- Icon injected by JS -->
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2" id="modal-title">Perhatian</h3>
+                <p class="text-sm text-gray-500 mb-6" id="modal-message">Pesan default.</p>
+                
+                <button type="button" id="modal-close" class="w-full inline-flex justify-center rounded-xl border border-transparent bg-gray-900 px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set Current Year in Footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Data Mockup ---
+        const carsData = [
+            {
+                id: 1,
+                brand: 'Toyota',
+                model: 'Avanza 1.5 G MT',
+                year: 2021,
+                price: 185000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Toyota+Avanza',
+                transmission: 'Manual',
+                km: '35.000 km'
+            },
+            {
+                id: 2,
+                brand: 'Honda',
+                model: 'Brio Satya E CVT',
+                year: 2022,
+                price: 165000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Honda+Brio',
+                transmission: 'Matic',
+                km: '15.000 km'
+            },
+            {
+                id: 3,
+                brand: 'Mitsubishi',
+                model: 'Pajero Sport Dakar',
+                year: 2019,
+                price: 460000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Pajero+Sport',
+                transmission: 'Matic',
+                km: '60.000 km'
+            },
+            {
+                id: 4,
+                brand: 'Daihatsu',
+                model: 'Xenia 1.3 R MT',
+                year: 2018,
+                price: 135000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Daihatsu+Xenia',
+                transmission: 'Manual',
+                km: '85.000 km'
+            },
+            {
+                id: 5,
+                brand: 'Toyota',
+                model: 'Fortuner 2.4 VRZ',
+                year: 2020,
+                price: 495000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Toyota+Fortuner',
+                transmission: 'Matic',
+                km: '42.000 km'
+            },
+            {
+                id: 6,
+                brand: 'Honda',
+                model: 'CR-V 1.5 Turbo',
+                year: 2019,
+                price: 385000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Honda+CR-V',
+                transmission: 'Matic',
+                km: '55.000 km'
+            },
+            {
+                id: 7,
+                brand: 'Suzuki',
+                model: 'Ertiga GL MT',
+                year: 2020,
+                price: 175000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Suzuki+Ertiga',
+                transmission: 'Manual',
+                km: '40.000 km'
+            },
+            {
+                id: 8,
+                brand: 'Toyota',
+                model: 'Innova Reborn 2.4 G',
+                year: 2018,
+                price: 320000000,
+                image: 'https://placehold.co/600x400/e2e8f0/475569?text=Toyota+Innova',
+                transmission: 'Matic',
+                km: '75.000 km'
+            }
+        ];
+
+        // --- DOM Elements ---
+        const carGrid = document.getElementById('car-grid');
+        const emptyState = document.getElementById('empty-state');
+        const brandFilter = document.getElementById('brand-filter');
+        const priceFilter = document.getElementById('price-filter');
+        const resetFilterBtn = document.getElementById('reset-filter');
+        const resultCount = document.getElementById('result-count');
+        
+        // Modal Elements
+        const modal = document.getElementById('custom-modal');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalContent = document.getElementById('modal-content');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalCloseBtn = document.getElementById('modal-close');
+
+        // --- Utility Functions ---
+        
+        // Format Currency (Rupiah)
+        const formatRupiah = (number) => {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(number);
+        };
+
+        // Custom Modal Controller (replaces alert)
+        const showModal = (type, title, message) => {
+            // Setup Modal Styling based on Type
+            if (type === 'whatsapp') {
+                modalIcon.className = 'mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-4';
+                modalIcon.innerHTML = '<i class="fa-brands fa-whatsapp text-3xl"></i>';
+                modalCloseBtn.className = 'w-full inline-flex justify-center rounded-xl border border-transparent bg-green-600 px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-green-700 transition';
+            } else if (type === 'qris') {
+                modalIcon.className = 'mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mb-4';
+                modalIcon.innerHTML = '<i class="fa-solid fa-qrcode text-3xl"></i>';
+                modalCloseBtn.className = 'w-full inline-flex justify-center rounded-xl border border-transparent bg-blue-600 px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-blue-700 transition';
+            }
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            // Show modal
+            modal.classList.remove('hidden');
+            // Trigger animation
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        };
+
+        const closeModal = () => {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Wait for transition
+        };
+
+        // Modal Event Listeners
+        modalCloseBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+
+        // --- Core Application Logic ---
+
+        // Render Cards Function
+        const renderCars = (carsToRender) => {
+            carGrid.innerHTML = '';
+            
+            if (carsToRender.length === 0) {
+                carGrid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                resultCount.textContent = '0';
+                return;
+            }
+
+            carGrid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            resultCount.textContent = carsToRender.length;
+
+            carsToRender.forEach(car => {
+                const cardHTML = `
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden group flex flex-col h-full">
+                        <!-- Image Container -->
+                        <div class="relative overflow-hidden aspect-[4/3] bg-gray-100">
+                            <img src="${car.image}" alt="${car.brand} ${car.model}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" loading="lazy">
+                            <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                                ${car.year}
+                            </div>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">${car.brand}</div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">${car.model}</h3>
+                            
+                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                                <div class="flex items-center gap-1">
+                                    <i class="fa-solid fa-gauge-high w-4 text-center"></i> ${car.km}
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="fa-solid fa-gear w-4 text-center"></i> ${car.transmission}
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="text-xl font-extrabold text-gray-900 mb-4">
+                                    ${formatRupiah(car.price)}
+                                </div>
+                                
+                                <!-- Action Buttons -->
+                                <div class="flex flex-col gap-2">
+                                    <button onclick="handleWhatsApp('${car.brand} ${car.model}', '${car.price}')" class="w-full flex items-center justify-center gap-2 bg-green-50 hover:bg-green-600 hover:text-white text-green-700 border border-green-200 hover:border-green-600 font-medium py-2.5 px-4 rounded-xl transition duration-200">
+                                        <i class="fa-brands fa-whatsapp text-lg"></i> Chat WhatsApp
+                                    </button>
+                                    <button onclick="handleQRIS('${car.brand} ${car.model}')" class="w-full flex items-center justify-center gap-2 bg-brand-50 hover:bg-brand-600 hover:text-white text-brand-700 border border-brand-200 hover:border-brand-600 font-medium py-2.5 px-4 rounded-xl transition duration-200">
+                                        <i class="fa-solid fa-qrcode"></i> Bayar dengan QRIS
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                carGrid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        };
+
+        // Filter Logic
+        const filterCars = () => {
+            const selectedBrand = brandFilter.value;
+            const maxPrice = priceFilter.value ? parseInt(priceFilter.value) : Infinity;
+
+            const filteredData = carsData.filter(car => {
+                const matchBrand = selectedBrand === 'All' || car.brand === selectedBrand;
+                const matchPrice = car.price <= maxPrice;
+                return matchBrand && matchPrice;
+            });
+
+            renderCars(filteredData);
+        };
+
+        // Button Action Handlers (Exposed to global window for onclick)
+        window.handleWhatsApp = (carName, carPrice) => {
+            const priceFormatted = formatRupiah(carPrice);
+            showModal(
+                'whatsapp', 
+                'Hubungi via WhatsApp', 
+                `Anda akan diarahkan ke WhatsApp untuk menanyakan stok ${carName} seharga ${priceFormatted}. (Simulasi Integrasi API)`
+            );
+        };
+
+        window.handleQRIS = (carName) => {
+            showModal(
+                'qris', 
+                'Pembayaran QRIS Midtrans', 
+                `Sistem sedang menginisialisasi pembayaran (Down Payment/Full) untuk ${carName} via Midtrans. Mohon siapkan aplikasi M-Banking Anda. (Simulasi)`
+            );
+        };
+
+        // Event Listeners for Filters
+        brandFilter.addEventListener('change', filterCars);
+        priceFilter.addEventListener('input', filterCars);
+        
+        resetFilterBtn.addEventListener('click', () => {
+            brandFilter.value = 'All';
+            priceFilter.value = '';
+            filterCars();
+        });
+
+        // Initialize Render
+        renderCars(carsData);
+
+    </script>
+</body>
+</html>
